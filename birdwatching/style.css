@@ -1,0 +1,137 @@
+body {
+    background-color: black;
+    padding: 8px;
+}
+
+header{
+    background-color: rgb(170, 170, 170);    
+}
+
+header .logo{
+    display: flex;
+    justify-content: center;
+}
+
+.logo h1{
+    margin-left: 600px;
+}
+
+.logo img{
+    max-width: 100px;
+    margin-top: 40px;
+    margin-left: 500px;
+}
+
+header .navegationBar{
+    background-color: rgb(136, 136, 136);
+    padding: 15px;
+}
+
+header h1{
+    text-shadow: 2px 2px 10px black;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4rem;
+    color: black;
+    text-align: center;    
+}
+
+.navegationBar ul a{
+    text-decoration: none;
+    padding: 50px;    
+    color: black;   
+    text-align: center ;  
+}
+
+#teste{
+    text-align: center;    
+}
+
+#home:hover {    
+    background-color: white;
+    transition: 0.5s;
+    opacity: 0.7;    
+}
+
+#get:hover {    
+    background-color: white;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+#foto:hover {    
+    background-color: white;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+#gear:hover {    
+    background-color: white;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+#forum:hover {    
+    background-color: white;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+main{
+    display: flex;
+    padding: 12px;
+    background-color: rgb(61, 61, 61);
+}
+
+#fix{
+    padding: 8px;
+}
+
+.welcome{
+    background-color: rgb(170, 170, 170);
+    width: 1800px;
+}
+
+.welcome h2{
+    font-family: 'Cinzel Decorative', cursive;
+    text-shadow: 2px 2px 10px black;
+    color: black;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.welcome p{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: black;
+    font-size: 1.5rem;
+    padding: 12px;
+    text-align: justify;
+}
+
+
+.photos{
+    background-color: rgb(170, 170, 170);
+    width: 600px;
+    padding: 30px;
+    text-align: center;
+    
+}
+
+.photos h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    text-shadow: 2px 2px 10px black;
+    color: black;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.photos img{
+    width: 200px;
+    align-items: center;
+    padding: 8px;    
+}
+
+footer{
+    background-color: rgb(170, 170, 170);
+    display: flex;
+    padding: 20px;
+}
