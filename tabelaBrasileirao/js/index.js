@@ -1,102 +1,102 @@
 var times = [
   {
     id: 1,
-    escudo: "../img/america-mineiro.png",
+    escudo: "img/america-mineiro.png",
     nome: "América Mineiro",
   },
   {
     id: 2,
-    escudo: "../img/athletico-paranaense.png",
+    escudo: "img/athletico-paranaense.png",
     nome: "Athletico Paranaense",
   },
   {
     id: 3,
-    escudo: "../img/atletico-mineiro.png",
+    escudo: "img/atletico-mineiro.png",
     nome: "Atlético Mineiro",
   },
   {
     id: 4,
-    escudo: "../img/bahia.png",
+    escudo: "img/bahia.png",
     nome: "Bahia",
   },
   {
     id: 5,
-    escudo: "../img/botafogo.png",
+    escudo: "img/botafogo.png",
     nome: "Botafogo",
   },
   {
     id: 6,
-    escudo: "../img/corinthians.png",
+    escudo: "img/corinthians.png",
     nome: "Corinthians",
   },
   {
     id: 7,
-    escudo: "../img/coritiba.png",
+    escudo: "img/coritiba.png",
     nome: "Coritiba",
   },
   {
     id: 8,
-    escudo: "../img/cruzeiro.png",
+    escudo: "img/cruzeiro.png",
     nome: "Cruzeiro",
   },
   {
     id: 9,
-    escudo: "../img/cuiaba.png",
+    escudo: "img/cuiaba.png",
     nome: "Cuiabá",
   },
   {
     id: 10,
-    escudo: "../img/flamengo.png",
+    escudo: "img/flamengo.png",
     nome: "Flamengo",
   },
   {
     id: 11,
-    escudo: "../img/fluminense.png",
+    escudo: "img/fluminense.png",
     nome: "Fluminense",
   },
   {
     id: 12,
-    escudo: "../img/fortaleza.png",
+    escudo: "img/fortaleza.png",
     nome: "Fortaleza",
   },
   {
     id: 13,
-    escudo: "../img/goias-esporte-clube.png",
+    escudo: "img/goias-esporte-clube.png",
     nome: "Goiás",
   },
   {
     id: 14,
-    escudo: "../img/gremio.png",
+    escudo: "img/gremio.png",
     nome: "Grêmio",
   },
   {
     id: 15,
-    escudo: "../img/internacional.png",
+    escudo: "img/internacional.png",
     nome: "Internacional",
   },
   {
     id: 16,
-    escudo: "../img/palmeiras.png",
+    escudo: "img/palmeiras.png",
     nome: "Palmeiras",
   },
   {
     id: 17,
-    escudo: "../img/red-bull-bragantino.png",
+    escudo: "img/red-bull-bragantino.png",
     nome: "Red Bull Bragantino",
   },
   {
     id: 18,
-    escudo: "../img/santos.png",
+    escudo: "img/santos.png",
     nome: "Santos",
   },
   {
     id: 19,
-    escudo: "../img/sao-paulo.png",
+    escudo: "img/sao-paulo.png",
     nome: "São Paulo",
   },
   {
     id: 20,
-    escudo: "../img/vasco-da-gama.png",
+    escudo: "img/vasco-da-gama.png",
     nome: "Vasco",
   },
 ];
@@ -326,10 +326,11 @@ var dadosTimes = [
 
 var dadosFinais = [];
 
+const imagens = ["img/vitoria.svg", "img/derrota.svg", "img/empate.svg"];
+
 function jogos(times, dadosTimes) {
   let tmp;
   let randomNumber;
-  let resultado;
 
   //embaralhando os times
   for (let i = times.length - 1; i > 0; i--) {
@@ -345,8 +346,73 @@ function jogos(times, dadosTimes) {
     dadosFinais.push(resultado);
   }
 }
-jogos(times, dadosTimes);
 
-for (let i = 0; i < dadosFinais.length; i++) {
-  console.log(i + 1,"º", dadosFinais[i].nome);
+function addTable(dados) {
+  const tabelaCorpo = document.getElementById("tabelaCorpo");
+
+  for (let i = 0; i < dados.length; i++) {
+    let linha = tabelaCorpo.insertRow();
+
+    let posicaoNome = linha.insertCell(0);
+
+    let posicaoTexto = document.createTextNode(`${i + 1} `);
+    posicaoNome.appendChild(posicaoTexto);
+
+    let escudo = document.createElement("img");
+    escudo.src = dados[i].escudo;
+    escudo.alt = `${dados[i].nome} Escudo`; // Defina um alt text adequado
+    escudo.width = 24; // Ajuste o tamanho conforme necessário
+    escudo.height = 24; // Ajuste o tamanho conforme necessário
+    posicaoNome.appendChild(escudo);
+
+    let nomeTexto = document.createTextNode(` ${dados[i].nome}`);
+    posicaoNome.appendChild(nomeTexto);
+
+    let pontos = linha.insertCell(1);
+    pontos.textContent = dados[i].pontos;
+
+    let partidas = linha.insertCell(2);
+    partidas.textContent = dados[i].partidas;
+
+    let vitorias = linha.insertCell(3);
+    vitorias.textContent = dados[i].vitorias;
+
+    let empates = linha.insertCell(4);
+    empates.textContent = dados[i].empates;
+
+    let derrotas = linha.insertCell(5);
+    derrotas.textContent = dados[i].derrotas;
+
+    let golsMarcados = linha.insertCell(6);
+    golsMarcados.textContent = dados[i].golsMarcados;
+
+    let golsSofridos = linha.insertCell(7);
+    golsSofridos.textContent = dados[i].golsSofridos;
+
+    let saldoGols = linha.insertCell(8);
+    saldoGols.textContent = dados[i].saldoGols;
+
+    let colunaImagens = linha.insertCell(9);
+    colunaImagens.style.width = "110px";
+    colunaImagens.style.height = "38px";
+
+    for (let j = 0; j < 5; j++) {
+      // repetir 5 vezes
+      let imagemSorteadaSrc =
+        imagens[Math.floor(Math.random() * imagens.length)];
+      let imagemSorteada = document.createElement("img");
+      imagemSorteada.src = imagemSorteadaSrc;
+      imagemSorteada.alt = "D/v/e";
+      imagemSorteada.style.width = "16px";
+      imagemSorteada.style.height = "16px";
+      imagemSorteada.style.padding = "1px";
+      colunaImagens.appendChild(imagemSorteada);
+    }
+  }
+}
+
+jogos(times, dadosTimes);
+addTable(dadosFinais);
+ for (let i = 0; i < dadosFinais.length; i++) {
+   console.log(i + 1,"º", dadosFinais[i].nome);
 }

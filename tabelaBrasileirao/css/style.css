@@ -28,11 +28,31 @@ main {
 }
 
 .tabela{
-    width: 100%;
+    width: 100%;    
+}
+table{
+    border-collapse: collapse;
+}
+
+thead{
+    border-bottom: 1px solid white;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #6e6a6a
+}
+th {
+    background-color: #04AA6D;
+    color: white;
 }
 
 .tabela td{
-    border: 3px solid red;
+    vertical-align: middle;
 }
 
 .tabela img{
