@@ -324,12 +324,12 @@ var dadosTimes = [
   },
 ];
 
-var timesComDados;
+var dadosFinais = [];
 
 function jogos(times, dadosTimes) {
   let tmp;
   let randomNumber;
-  let resultado
+  let resultado;
 
   //embaralhando os times
   for (let i = times.length - 1; i > 0; i--) {
@@ -339,12 +339,14 @@ function jogos(times, dadosTimes) {
     times[i] = tmp;
   }
 
-  //imprimindo os times em ordem de 1º a 20º
+  //passando as posicoes de cada time e fazendo um merge com os dados
   for (let i = 0; i < times.length; i++) {
-    //console.log(i + 1, "º", times[i].nome);
-    resultado = Object.assign({}, times[i], dadosTimes[i])
-    console.log(resultado);
+    let resultado = Object.assign({}, times[i], dadosTimes[i]);
+    dadosFinais.push(resultado);
   }
 }
-
 jogos(times, dadosTimes);
+
+for (let i = 0; i < dadosFinais.length; i++) {
+  console.log(i + 1,"º", dadosFinais[i].nome);
+}
